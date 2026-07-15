@@ -45,7 +45,7 @@
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/iqbalpa/picisflow.git
+git clone https://github.com/gask1ns/picisflow.git
 cd picisflow
 npm install
 ```
@@ -123,7 +123,7 @@ supabase/
 
 ## 📝 Lisensi
 
-MIT © 2026 [iqbalpa](https://github.com/iqbalpa)
+MIT © 2026 [gask1ns](https://github.com/gask1ns)
 
 ---
 
