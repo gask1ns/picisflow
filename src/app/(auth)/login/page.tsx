@@ -22,7 +22,7 @@ export default function LoginPage() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_#1a1a1a] w-full max-w-sm"
+        className="border-2 border-black bg-white p-8 shadow-[4px_4px_0px_0px_#000] w-full max-w-sm"
       >
         <h1 className="text-3xl font-black uppercase mb-2">Masuk</h1>
         <p className="text-sm mb-6">Email & password atau magic link.</p>
@@ -36,7 +36,7 @@ export default function LoginPage() {
               type="email"
               placeholder="Email"
               required
-              className="border-4 border-black px-4 py-3 text-sm w-full"
+              className="border-2 border-black px-4 py-3 text-sm w-full"
             />
           </div>
           <div>
@@ -47,7 +47,7 @@ export default function LoginPage() {
               type="password"
               placeholder="Password"
               required
-              className="border-4 border-black px-4 py-3 text-sm w-full"
+              className="border-2 border-black px-4 py-3 text-sm w-full"
             />
           </div>
           {loginState?.error && (
@@ -56,7 +56,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loginPending}
-            className="border-4 border-black bg-primary px-6 py-3 font-bold text-white uppercase shadow-[4px_4px_0px_0px_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#1a1a1a] transition-all disabled:opacity-50"
+            className="border-2 border-black bg-primary px-6 py-3 font-bold text-white uppercase shadow-[2px_2px_0px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_#000] transition-all disabled:opacity-50"
           >
             {loginPending ? "..." : "Masuk"}
           </button>
@@ -74,7 +74,7 @@ export default function LoginPage() {
             type="email"
             placeholder="Email untuk magic link"
             required
-            className="border-4 border-black px-4 py-3 text-sm w-full"
+            className="border-2 border-black px-4 py-3 text-sm w-full"
           />
           {magicState?.success && (
             <p className="text-sm text-success">Cek email kamu untuk link masuk.</p>
@@ -85,7 +85,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={magicPending}
-            className="border-4 border-black bg-white px-6 py-3 font-bold text-black uppercase shadow-[4px_4px_0px_0px_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#1a1a1a] transition-all disabled:opacity-50"
+            className="border-2 border-black bg-white px-6 py-3 font-bold text-black uppercase shadow-[2px_2px_0px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_#000] transition-all disabled:opacity-50"
           >
             {magicPending ? "..." : "Kirim Magic Link"}
           </button>

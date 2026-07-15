@@ -21,7 +21,7 @@ export function BottomNav() {
 
   return (
     <nav className="fixed bottom-4 inset-x-4 z-50 mx-auto max-w-md sm:hidden">
-      <div className="relative rounded-2xl border-4 border-black bg-card shadow-lg px-2 py-1.5">
+      <div className="relative rounded-2xl border-2 border-black bg-card shadow-lg px-2 py-1.5">
         <div className="flex items-center">
           {items.map((item, i) => {
             const active = i === activeIdx;

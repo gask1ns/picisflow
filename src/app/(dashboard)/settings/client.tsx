@@ -22,7 +22,7 @@ export function SettingsClient({ profile }: { profile: Profile }) {
   }
 
   return (
-    <div className="border-4 border-black bg-card p-6 shadow-lg">
+    <div className="border-2 border-black bg-card p-6 shadow-lg">
       <h3 className="font-bold uppercase mb-4">Profil</h3>
       <form onSubmit={handleSave} className="flex flex-col gap-3">
         <div>
@@ -32,14 +32,14 @@ export function SettingsClient({ profile }: { profile: Profile }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Nama kamu"
-            className="border-4 border-black px-4 py-3 w-full text-sm"
+            className="border-2 border-black px-4 py-3 w-full text-sm"
           />
         </div>
         {msg && <p className="text-sm">{msg}</p>}
         <button
           type="submit"
           disabled={saving}
-          className="border-4 border-black bg-primary px-4 py-2 font-bold text-black uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-sm disabled:opacity-50 w-fit"
+          className="border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-sm disabled:opacity-50 w-fit"
         >
           {saving ? "..." : "Simpan"}
         </button>
@@ -54,7 +54,7 @@ export function SettingsClient({ profile }: { profile: Profile }) {
           await deleteAccount();
         }}
         disabled={deleting}
-        className="border-4 border-black bg-danger px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-sm"
+        className="border-2 border-black bg-danger px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-sm"
       >
         {deleting ? "..." : "Hapus Akun"}
       </button>

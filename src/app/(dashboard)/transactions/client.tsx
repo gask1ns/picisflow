@@ -76,13 +76,13 @@ export function TransactionsClient({
           <div className="flex items-center gap-2">
             <Link
               href={`/api/transactions/export${buildUrl(1).replace("/transactions", "")}`}
-              className="border-4 border-black bg-card px-4 py-2 font-bold uppercase shadow-[4px_4px_0px_0px_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#1a1a1a] transition-all text-xs"
+              className="border-2 border-black bg-card px-4 py-2 font-bold uppercase shadow-[2px_2px_0px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_#000] transition-all text-xs"
             >
               Export CSV
             </Link>
             <Link
               href="/transactions/new"
-              className="border-4 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-[4px_4px_0px_0px_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#1a1a1a] transition-all text-sm"
+              className="border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-[2px_2px_0px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_#000] transition-all text-sm"
             >
               + Baru
             </Link>
@@ -94,7 +94,7 @@ export function TransactionsClient({
             <select
               name="category"
               defaultValue={defaultCategory ?? ""}
-              className="border-4 border-black px-3 py-2 text-sm w-full sm:w-auto"
+              className="border-2 border-black px-3 py-2 text-sm w-full sm:w-auto"
             >
               <option value="">Semua kategori</option>
               {categories.map((c) => (
@@ -107,17 +107,17 @@ export function TransactionsClient({
               type="date"
               name="from"
               defaultValue={defaultFrom}
-              className="border-4 border-black px-3 py-2 text-sm flex-1 sm:flex-none"
+              className="border-2 border-black px-3 py-2 text-sm flex-1 sm:flex-none"
             />
             <input
               type="date"
               name="to"
               defaultValue={defaultTo}
-              className="border-4 border-black px-3 py-2 text-sm flex-1 sm:flex-none"
+              className="border-2 border-black px-3 py-2 text-sm flex-1 sm:flex-none"
             />
             <button
               type="submit"
-              className="border-4 border-black bg-card px-4 py-2 font-bold text-sm shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-xs transition-all w-full sm:w-auto"
+              className="border-2 border-black bg-card px-4 py-2 font-bold text-sm shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-xs transition-all w-full sm:w-auto"
             >
               Filter
             </button>
@@ -147,7 +147,7 @@ export function TransactionsClient({
                   <TableRow key={t.id}>
                     <TableCell>
                       <Link href={`/transactions/${t.id}`} className="flex items-center gap-1.5">
-                        <span>{t.categoryIcon ?? "📄"}</span>
+                        <span className="flex size-10 shrink-0 items-center justify-center border-2 border-black bg-muted text-lg">{t.categoryIcon ?? "📄"}</span>
                         <span className="font-bold truncate max-w-[120px]">
                           {t.categoryName ?? "Tanpa kategori"}
                         </span>
@@ -200,7 +200,7 @@ export function TransactionsClient({
 
         {totalPages > 1 && (
           <FadeIn>
-            <div className="flex items-center justify-between border-4 border-black bg-card p-4 shadow-md">
+            <div className="flex items-center justify-between border-2 border-black bg-card p-4 shadow-md">
               {page > 1 ? (
                 <Link href={buildUrl(page - 1)} className="border-2 border-black px-3 py-1.5 text-sm font-bold hover:bg-secondary hover:text-secondary-foreground transition-all">
                   ◀ Sebelumnya
@@ -228,14 +228,14 @@ export function TransactionsClient({
             <button
               type="submit"
               disabled={pending}
-              className="flex-1 border-4 border-black bg-danger px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all disabled:opacity-50"
+              className="flex-1 border-2 border-black bg-danger px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all disabled:opacity-50"
             >
               {pending ? "..." : "Hapus"}
             </button>
             <button
               type="button"
               onClick={() => setDeleteId(null)}
-              className="flex-1 border-4 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+              className="flex-1 border-2 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               Batal
             </button>

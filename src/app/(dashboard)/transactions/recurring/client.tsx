@@ -68,7 +68,7 @@ export function RecurringClient({
         <h2 className="text-3xl font-black uppercase">Transaksi Berulang</h2>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="border-4 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-md hover:translate-x-[2px] hover:translate-y-[2px] transition-all text-sm"
+          className="border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-md hover:translate-x-[2px] hover:translate-y-[2px] transition-all text-sm"
         >
           + Baru
         </button>
@@ -76,32 +76,32 @@ export function RecurringClient({
 
       {showForm && (
         <FadeIn>
-          <div className="border-4 border-black bg-card p-4 sm:p-6 shadow-lg">
+          <div className="border-2 border-black bg-card p-4 sm:p-6 shadow-lg">
             <h3 className="font-bold uppercase mb-4">Tambah Transaksi Berulang</h3>
             <form action={createAction} className="flex flex-col gap-3">
               <div className="flex gap-2">
-                <label className="flex-1 border-4 border-black px-4 py-3 text-center font-bold cursor-pointer bg-danger text-white">
+                <label className="flex-1 border-2 border-black px-4 py-3 text-center font-bold cursor-pointer bg-danger text-white">
                   <input type="radio" name="type" value="expense" defaultChecked className="sr-only" />
                   Pengeluaran
                 </label>
-                <label className="flex-1 border-4 border-black px-4 py-3 text-center font-bold cursor-pointer bg-card">
+                <label className="flex-1 border-2 border-black px-4 py-3 text-center font-bold cursor-pointer bg-card">
                   <input type="radio" name="type" value="income" className="sr-only" />
                   Pemasukan
                 </label>
               </div>
 
-              <input name="amount" type="number" placeholder="Jumlah (Rp)" required min={1} className="border-4 border-black px-4 py-3 w-full" />
+              <input name="amount" type="number" placeholder="Jumlah (Rp)" required min={1} className="border-2 border-black px-4 py-3 w-full" />
 
-              <select name="category_id" className="border-4 border-black px-4 py-3 w-full">
+              <select name="category_id" className="border-2 border-black px-4 py-3 w-full">
                 <option value="">Tanpa kategori</option>
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>{c.icon ?? "📄"} {c.name}</option>
                 ))}
               </select>
 
-              <input name="description" placeholder="Catatan" className="border-4 border-black px-4 py-3 w-full" />
+              <input name="description" placeholder="Catatan" className="border-2 border-black px-4 py-3 w-full" />
 
-              <select name="frequency" className="border-4 border-black px-4 py-3 w-full">
+              <select name="frequency" className="border-2 border-black px-4 py-3 w-full">
                 <option value="monthly">Bulanan</option>
                 <option value="weekly">Mingguan</option>
                 <option value="daily">Harian</option>
@@ -109,13 +109,13 @@ export function RecurringClient({
               </select>
 
               <div className="flex gap-2">
-                <input name="start_date" type="date" required className="flex-1 border-4 border-black px-4 py-3" />
-                <input name="end_date" type="date" className="flex-1 border-4 border-black px-4 py-3" placeholder="Selesai (opsional)" />
+                <input name="start_date" type="date" required className="flex-1 border-2 border-black px-4 py-3" />
+                <input name="end_date" type="date" className="flex-1 border-2 border-black px-4 py-3" placeholder="Selesai (opsional)" />
               </div>
 
               {createState?.error && <p className="text-xs text-danger">{createState.error}</p>}
 
-              <button type="submit" disabled={createPending} className="border-4 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
+              <button type="submit" disabled={createPending} className="border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
                 {createPending ? "..." : "Simpan"}
               </button>
             </form>
@@ -134,10 +134,10 @@ export function RecurringClient({
         {recurring.map((r) => (
           <StaggerItem key={r.id}>
             <HoverCard>
-              <div className="border-4 border-black bg-card p-4 shadow-md flex items-center justify-between">
+              <div className="border-2 border-black bg-card p-4 shadow-md flex items-center justify-between">
                 <div className="min-w-0 flex-1 mr-2">
                   <div className="flex items-center gap-2">
-                    <span className="shrink-0">{r.categoryIcon ?? "📄"}</span>
+                    <span className="flex size-10 shrink-0 items-center justify-center border-2 border-black bg-muted text-lg">{r.categoryIcon ?? "📄"}</span>
                     <span className="font-bold text-sm truncate">{r.categoryName ?? "Tanpa kategori"}</span>
                     {!r.is_active && (
                       <span className="text-[10px] bg-secondary text-secondary-foreground px-1 uppercase shrink-0">Nonaktif</span>
@@ -167,10 +167,10 @@ export function RecurringClient({
       <Modal open={!!deleteId} onClose={() => setDeleteId(null)}>
         <p className="font-bold mb-4">Yakin hapus transaksi berulang ini?</p>
         <form action={deleteAction} className="flex gap-2">
-          <button type="submit" disabled={deletePending} className="flex-1 border-4 border-black bg-danger px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
+          <button type="submit" disabled={deletePending} className="flex-1 border-2 border-black bg-danger px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
             {deletePending ? "..." : "Hapus"}
           </button>
-          <button type="button" onClick={() => setDeleteId(null)} className="flex-1 border-4 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm">
+          <button type="button" onClick={() => setDeleteId(null)} className="flex-1 border-2 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm">
             Batal
           </button>
         </form>

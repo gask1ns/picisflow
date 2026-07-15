@@ -26,7 +26,7 @@ export function Modal({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="border-4 border-black bg-card p-6 shadow-xl w-full max-w-sm"
+            className="border-2 border-black bg-card p-6 shadow-xl w-full max-w-sm"
             onClick={(e) => e.stopPropagation()}
           >
             {children}

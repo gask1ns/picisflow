@@ -57,7 +57,12 @@ export function DashboardClient({
     <PageWrapper>
       <div className="flex flex-col gap-8">
         <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-black uppercase">Dashboard</h2>
+          <div>
+            <h2 className="text-3xl font-black uppercase">Dashboard</h2>
+            <p className="text-sm mt-1">
+              Halo, <span className="font-bold">{displayName || userEmail}</span>
+            </p>
+          </div>
         </div>
 
         <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -93,7 +98,7 @@ export function DashboardClient({
 
         <FadeIn delay={0.3}>
           <HoverCard>
-            <div className="border-4 border-black bg-card p-4 sm:p-6 shadow-lg">
+            <div className="border-2 border-black bg-card p-4 sm:p-6 shadow-lg">
               <h3 className="font-bold uppercase mb-4 text-base">
                 Breakdown Pengeluaran per Kategori
               </h3>
@@ -104,7 +109,7 @@ export function DashboardClient({
 
         {budgetCats.length > 0 && (
           <FadeIn delay={0.35}>
-            <div className="border-4 border-black bg-card p-4 sm:p-6 shadow-lg">
+            <div className="border-2 border-black bg-card p-4 sm:p-6 shadow-lg">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold uppercase text-base">Budget Kamu</h3>
                 <span className="text-xs font-bold">{budgetCats.length} budget aktif</span>
@@ -129,7 +134,7 @@ export function DashboardClient({
                             {b.period === "weekly" && <span className="text-[10px] ml-1">/mg</span>}
                           </span>
                         </div>
-                        <div className={`h-3 border-4 border-black ${pct >= 85 ? "border-danger" : "bg-card"}`}>
+                        <div className={`h-3 border-2 border-black ${pct >= 85 ? "border-danger" : "bg-card"}`}>
                           <div
                             className={`h-full ${barColor} transition-all duration-500`}
                             style={{ width: `${pct}%` }}
@@ -146,7 +151,7 @@ export function DashboardClient({
 
         {budgetCats.length === 0 && (
           <FadeIn delay={0.35}>
-            <div className="border-4 border-black border-dashed bg-card p-4 sm:p-6 shadow-lg">
+            <div className="border-2 border-black border-dashed bg-card p-4 sm:p-6 shadow-lg">
               <div className="flex flex-col items-center gap-2 py-4">
                 <p className="text-sm font-bold uppercase">Belum ada budget</p>
                 <p className="text-xs text-center max-w-xs">
@@ -154,7 +159,7 @@ export function DashboardClient({
                 </p>
                 <Link
                   href="/categories"
-                  className="border-4 border-black bg-primary px-4 py-2 text-sm font-bold uppercase shadow-sm hover:translate-x-[1px] transition-all"
+                  className="border-2 border-black bg-primary px-4 py-2 text-sm font-bold uppercase shadow-sm hover:translate-x-[1px] transition-all"
                 >
                   Set Budget
                 </Link>
@@ -164,7 +169,7 @@ export function DashboardClient({
         )}
 
         <FadeIn delay={0.4}>
-          <div className="border-4 border-black bg-card shadow-lg">
+          <div className="border-2 border-black bg-card shadow-lg">
             <div className="flex items-center justify-between p-4 sm:p-6 pb-0">
               <h3 className="font-bold uppercase text-base">Transaksi Terbaru</h3>
               <Link href="/transactions" className="text-xs font-bold underline">
@@ -191,7 +196,7 @@ export function DashboardClient({
                     <TableRow key={t.id}>
                       <TableCell>
                         <Link href={`/transactions/${t.id}`} className="flex items-center gap-1.5">
-                          <span>{t.categories?.icon ?? "📄"}</span>
+                          <span className="flex size-10 shrink-0 items-center justify-center border-2 border-black bg-muted text-lg">{t.categories?.icon ?? "📄"}</span>
                           <span className="font-bold truncate max-w-[120px]">
                             {t.categories?.name ?? "Tanpa kategori"}
                           </span>
@@ -224,11 +229,6 @@ export function DashboardClient({
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.5}>
-          <p className="text-base">
-            Halo, <span className="font-bold">{displayName || userEmail}</span>
-          </p>
-        </FadeIn>
       </div>
     </PageWrapper>
   );
@@ -245,7 +245,7 @@ function StatCard({
 }) {
   return (
     <div
-      className={`border-4 border-black ${color} p-4 sm:p-6 shadow-lg`}
+      className={`border-2 border-black ${color} p-4 sm:p-6 shadow-lg`}
     >
       <p className="text-xs font-bold uppercase tracking-wider mb-1">{label}</p>
       <p className="text-3xl font-black">

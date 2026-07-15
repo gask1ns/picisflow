@@ -54,7 +54,7 @@ export function TransactionForm({
         <button
           type="button"
           onClick={() => setType("expense")}
-          className={`flex-1 border-4 border-black px-4 py-3 text-center font-bold transition-all ${
+          className={`flex-1 border-2 border-black px-4 py-3 text-center font-bold transition-all ${
             type === "expense"
               ? "bg-danger text-white"
               : "bg-white text-black"
@@ -66,7 +66,7 @@ export function TransactionForm({
         <button
           type="button"
           onClick={() => setType("income")}
-          className={`flex-1 border-4 border-black px-4 py-3 text-center font-bold transition-all ${
+          className={`flex-1 border-2 border-black px-4 py-3 text-center font-bold transition-all ${
             type === "income"
               ? "bg-success text-white"
               : "bg-white text-black"
@@ -83,13 +83,13 @@ export function TransactionForm({
         required
         min={1}
         defaultValue={defaultValues?.amount?.toString() ?? ""}
-        className="border-4 border-black px-4 py-3 text-lg font-bold w-full"
+        className="border-2 border-black px-4 py-3 text-lg font-bold w-full"
       />
 
       <select
         name="category_id"
         defaultValue={defaultValues?.category_id ?? ""}
-        className="border-4 border-black px-4 py-3 w-full"
+        className="border-2 border-black px-4 py-3 w-full"
         key={type}
       >
         <option value="">Tanpa kategori</option>
@@ -104,7 +104,7 @@ export function TransactionForm({
         name="description"
         placeholder="Catatan (opsional)"
         defaultValue={defaultValues?.description ?? ""}
-        className="border-4 border-black px-4 py-3 w-full"
+        className="border-2 border-black px-4 py-3 w-full"
       />
 
       <input
@@ -113,7 +113,7 @@ export function TransactionForm({
         defaultValue={
           defaultValues?.date ?? new Date().toISOString().split("T")[0]
         }
-        className="border-4 border-black px-4 py-3 w-full"
+        className="border-2 border-black px-4 py-3 w-full"
       />
 
       {state?.error && (
@@ -123,7 +123,7 @@ export function TransactionForm({
       <button
         type="submit"
         disabled={pending}
-        className="border-4 border-black bg-primary px-6 py-3 font-bold text-white uppercase shadow-[4px_4px_0px_0px_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#1a1a1a] transition-all disabled:opacity-50"
+        className="border-2 border-black bg-primary px-6 py-3 font-bold text-white uppercase shadow-[2px_2px_0px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_0px_#000] transition-all disabled:opacity-50"
       >
         {pending ? "..." : "Simpan"}
       </button>

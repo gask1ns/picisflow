@@ -69,7 +69,7 @@ export function DebtsClient({ debts }: { debts: Debt[] }) {
           <h2 className="text-3xl font-black uppercase">Hutang / Piutang</h2>
           <button
             onClick={() => { setShowForm(true); setFormType("owe"); }}
-            className="border-4 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-md hover:translate-x-[2px] hover:translate-y-[2px] transition-all text-sm"
+            className="border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-md hover:translate-x-[2px] hover:translate-y-[2px] transition-all text-sm"
           >
             + Baru
           </button>
@@ -77,11 +77,11 @@ export function DebtsClient({ debts }: { debts: Debt[] }) {
 
         <FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="border-4 border-black bg-danger text-white p-4 sm:p-6 shadow-lg">
+            <div className="border-2 border-black bg-danger text-white p-4 sm:p-6 shadow-lg">
               <p className="text-xs font-bold uppercase">Gue Hutang</p>
               <p className="text-xl sm:text-2xl font-black break-all">Rp{totalOwe.toLocaleString("id-ID")}</p>
             </div>
-            <div className="border-4 border-black bg-success text-white p-4 sm:p-6 shadow-lg">
+            <div className="border-2 border-black bg-success text-white p-4 sm:p-6 shadow-lg">
               <p className="text-xs font-bold uppercase">Dihutangi</p>
               <p className="text-xl sm:text-2xl font-black break-all">Rp{totalOwed.toLocaleString("id-ID")}</p>
             </div>
@@ -95,14 +95,14 @@ export function DebtsClient({ debts }: { debts: Debt[] }) {
         {/* Add Form */}
         {showForm && (
           <FadeIn>
-            <div className="border-4 border-black bg-card p-4 sm:p-6 shadow-lg">
+            <div className="border-2 border-black bg-card p-4 sm:p-6 shadow-lg">
               <h3 className="font-bold uppercase mb-4">Tambah Catatan</h3>
               <form action={createAction} className="flex flex-col gap-3">
                 <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setFormType("owe")}
-                    className={`flex-1 border-4 border-black px-4 py-3 text-center font-bold transition-all ${formType === "owe" ? "bg-danger text-white" : "bg-card text-black"}`}
+                    className={`flex-1 border-2 border-black px-4 py-3 text-center font-bold transition-all ${formType === "owe" ? "bg-danger text-white" : "bg-card text-black"}`}
                   >
                     <input type="hidden" name="type" value={formType} />
                     Gue Hutang
@@ -110,21 +110,21 @@ export function DebtsClient({ debts }: { debts: Debt[] }) {
                   <button
                     type="button"
                     onClick={() => setFormType("owed")}
-                    className={`flex-1 border-4 border-black px-4 py-3 text-center font-bold transition-all ${formType === "owed" ? "bg-success text-white" : "bg-card text-black"}`}
+                    className={`flex-1 border-2 border-black px-4 py-3 text-center font-bold transition-all ${formType === "owed" ? "bg-success text-white" : "bg-card text-black"}`}
                   >
                     Dihutangi
                   </button>
                 </div>
-                <input name="counterparty_name" placeholder="Nama orang" required className="border-4 border-black px-4 py-3 w-full" />
-                <input name="amount" type="number" placeholder="Jumlah (Rp)" required min={1} className="border-4 border-black px-4 py-3 w-full" />
-                <input name="description" placeholder="Catatan (opsional)" className="border-4 border-black px-4 py-3 w-full" />
-                <input name="due_date" type="date" className="border-4 border-black px-4 py-3 w-full" />
+                <input name="counterparty_name" placeholder="Nama orang" required className="border-2 border-black px-4 py-3 w-full" />
+                <input name="amount" type="number" placeholder="Jumlah (Rp)" required min={1} className="border-2 border-black px-4 py-3 w-full" />
+                <input name="description" placeholder="Catatan (opsional)" className="border-2 border-black px-4 py-3 w-full" />
+                <input name="due_date" type="date" className="border-2 border-black px-4 py-3 w-full" />
                 {createState?.error && <p className="text-xs text-danger">{createState.error}</p>}
                 <div className="flex gap-2">
-                  <button type="submit" disabled={createPending} className="flex-1 border-4 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
+                  <button type="submit" disabled={createPending} className="flex-1 border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
                     {createPending ? "..." : "Simpan"}
                   </button>
-                  <button type="button" onClick={() => setShowForm(false)} className="flex-1 border-4 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm">
+                  <button type="button" onClick={() => setShowForm(false)} className="flex-1 border-2 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm">
                     Batal
                   </button>
                 </div>
@@ -138,7 +138,7 @@ export function DebtsClient({ debts }: { debts: Debt[] }) {
           {debts.map((d) => (
             <StaggerItem key={d.id}>
               <HoverCard>
-                <div className={`border-4 border-black bg-card p-4 shadow-md ${d.is_paid ? "opacity-60" : ""}`}>
+                <div className={`border-2 border-black bg-card p-4 shadow-md ${d.is_paid ? "opacity-60" : ""}`}>
                   <div className="flex items-start justify-between mb-2 gap-2">
                     <div className="min-w-0 flex-1">
                       <p className="font-bold truncate">{d.counterparty_name}</p>
@@ -180,13 +180,13 @@ export function DebtsClient({ debts }: { debts: Debt[] }) {
         <Modal open={!!editId} onClose={() => setEditId(null)}>
           <h3 className="font-bold mb-4">Edit Catatan</h3>
           <form action={editAction} className="flex flex-col gap-3">
-            <input name="counterparty_name" defaultValue={editing?.counterparty_name} placeholder="Nama orang" required className="border-4 border-black px-4 py-3 w-full" />
-            <input name="amount" type="number" defaultValue={editing?.amount?.toString()} placeholder="Jumlah" required min={1} className="border-4 border-black px-4 py-3 w-full" />
-            <input name="description" defaultValue={editing?.description ?? ""} placeholder="Catatan (opsional)" className="border-4 border-black px-4 py-3 w-full" />
-            <input name="due_date" type="date" defaultValue={editing?.due_date ?? ""} className="border-4 border-black px-4 py-3 w-full" />
+            <input name="counterparty_name" defaultValue={editing?.counterparty_name} placeholder="Nama orang" required className="border-2 border-black px-4 py-3 w-full" />
+            <input name="amount" type="number" defaultValue={editing?.amount?.toString()} placeholder="Jumlah" required min={1} className="border-2 border-black px-4 py-3 w-full" />
+            <input name="description" defaultValue={editing?.description ?? ""} placeholder="Catatan (opsional)" className="border-2 border-black px-4 py-3 w-full" />
+            <input name="due_date" type="date" defaultValue={editing?.due_date ?? ""} className="border-2 border-black px-4 py-3 w-full" />
             <input type="hidden" name="type" value={editing?.type ?? "owe"} />
             {editState?.error && <p className="text-xs text-danger">{editState.error}</p>}
-            <button type="submit" disabled={editPending} className="border-4 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
+            <button type="submit" disabled={editPending} className="border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
               {editPending ? "..." : "Simpan"}
             </button>
           </form>
@@ -196,10 +196,10 @@ export function DebtsClient({ debts }: { debts: Debt[] }) {
         <Modal open={!!deleteId} onClose={() => setDeleteId(null)}>
           <p className="font-bold mb-4">Yakin hapus catatan ini?</p>
           <form action={deleteAction} className="flex gap-2">
-            <button type="submit" disabled={deletePending} className="flex-1 border-4 border-black bg-danger px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
+            <button type="submit" disabled={deletePending} className="flex-1 border-2 border-black bg-danger px-4 py-2 font-bold text-white uppercase shadow-sm transition-all disabled:opacity-50">
               {deletePending ? "..." : "Hapus"}
             </button>
-            <button type="button" onClick={() => setDeleteId(null)} className="flex-1 border-4 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm">
+            <button type="button" onClick={() => setDeleteId(null)} className="flex-1 border-2 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm">
               Batal
             </button>
           </form>

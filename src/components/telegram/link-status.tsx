@@ -32,7 +32,7 @@ export function TelegramLink({ link }: { link: Link }) {
 
   if (link?.is_verified) {
     return (
-      <div className="border-4 border-black bg-card p-6 shadow-lg">
+      <div className="border-2 border-black bg-card p-6 shadow-lg">
         <h3 className="font-bold uppercase mb-4">Telegram</h3>
         <p className="text-sm mb-4">
           ✅ Terhubung ke{" "}
@@ -44,7 +44,7 @@ export function TelegramLink({ link }: { link: Link }) {
           <button
             type="submit"
             disabled={unlinkPending}
-            className="border-4 border-black bg-danger px-4 py-2 text-sm font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-xs transition-all disabled:opacity-50"
+            className="border-2 border-black bg-danger px-4 py-2 text-sm font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-xs transition-all disabled:opacity-50"
           >
             {unlinkPending ? "..." : "Putuskan"}
           </button>
@@ -57,7 +57,7 @@ export function TelegramLink({ link }: { link: Link }) {
   }
 
   return (
-    <div className="border-4 border-black bg-card p-6 shadow-lg">
+    <div className="border-2 border-black bg-card p-6 shadow-lg">
       <h3 className="font-bold uppercase mb-4">Telegram</h3>
       <p className="text-sm mb-4">Belum terhubung ke Telegram.</p>
 
@@ -65,14 +65,14 @@ export function TelegramLink({ link }: { link: Link }) {
         <button
           type="submit"
           disabled={genPending}
-          className="border-4 border-black bg-primary px-4 py-2 text-sm font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-xs transition-all disabled:opacity-50"
+          className="border-2 border-black bg-primary px-4 py-2 text-sm font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-xs transition-all disabled:opacity-50"
         >
           {genPending ? "..." : "Hubungkan Telegram"}
         </button>
       </form>
 
       {genState?.code && (
-        <div className="mt-4 border-4 border-black bg-accent p-4">
+        <div className="mt-4 border-2 border-black bg-accent p-4">
           <div className="flex items-center justify-between mb-1">
             <p className="text-xs font-bold uppercase">Kode verifikasi:</p>
             <button

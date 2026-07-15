@@ -22,7 +22,7 @@ export function BarChart({ items }: { items: Item[] }) {
             <span className="text-sm font-bold w-20 truncate shrink-0">
               {item.label}
             </span>
-            <div className="flex-1 h-5 border-4 border-black bg-white">
+            <div className="flex-1 h-5 border-2 border-black bg-white">
               <div
                 className="h-full transition-all duration-500"
                 style={{

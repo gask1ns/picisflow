@@ -103,6 +103,9 @@ export async function processTransaction(
 
   // Auto-remove description if it matches category name
   let desc = description;
+  if (!desc && match && categoryInput.toLowerCase() !== match.name.toLowerCase()) {
+    desc = categoryInput;
+  }
   if (desc && match && desc.toLowerCase() === match.name.toLowerCase()) {
     desc = "";
   }

@@ -38,6 +38,10 @@ export async function signup(formData: FormData) {
 
   if (result.user) {
     const svc = createServiceClient();
+    const name = formData.get("display_name") as string;
+    if (name) {
+      await svc.from("profiles").update({ display_name: name }).eq("id", result.user.id);
+    }
     await svc.from("notifications").insert({
       user_id: result.user.id,
       type: "info",
@@ -105,5 +109,5 @@ export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();
   revalidatePath("/", "layout");
-  redirect("/login");
+  redirect("/");
 }

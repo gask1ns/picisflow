@@ -20,7 +20,7 @@ export default function ForgotPasswordPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="border-4 border-black bg-card p-8 shadow-lg max-w-sm w-full">
+      <div className="border-2 border-black bg-card p-8 shadow-lg max-w-sm w-full">
         <h1 className="font-head text-2xl font-black uppercase mb-2">Lupa Password</h1>
         <p className="text-sm mb-6">Masukin email, kami kirim link reset.</p>
 
@@ -36,11 +36,11 @@ export default function ForgotPasswordPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="border-4 border-black px-4 py-3 text-sm w-full"
+                className="border-2 border-black px-4 py-3 text-sm w-full"
               />
             </div>
             {error && <p className="text-sm text-danger">{error}</p>}
-            <button type="submit" className="border-4 border-black bg-primary px-6 py-3 font-bold text-black uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all">
+            <button type="submit" className="border-2 border-black bg-primary px-6 py-3 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all">
               Kirim Link Reset
             </button>
           </form>

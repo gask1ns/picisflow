@@ -52,7 +52,7 @@ export function TrendChart({ data }: { data: DailyData[] }) {
   const filtered = useMemo(() => fillGaps(data, range), [data, range])
 
   return (
-    <div className="border-4 border-black bg-card p-4 sm:p-6 shadow-lg flex flex-col gap-4">
+    <div className="border-2 border-black bg-card p-4 sm:p-6 shadow-lg flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h3 className="font-bold uppercase text-sm">Tren Harian</h3>
         <div className="flex gap-1">
@@ -100,7 +100,7 @@ export function TrendChart({ data }: { data: DailyData[] }) {
             cursor={false}
             content={
               <ChartTooltipContent
-                className="shadow-none rounded-none border-4 border-black"
+                className="shadow-none rounded-none border-2 border-black"
                 labelFormatter={(value: string) => {
                   const d = new Date(value + "T00:00:00")
                   return d.toLocaleDateString("id-ID", {

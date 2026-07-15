@@ -42,7 +42,7 @@ export function BudgetOverview({
   const pct = totalBudget > 0 ? Math.min(100, Math.round((totalUsed / totalBudget) * 100)) : 0
 
   return (
-    <div className="border-4 border-black bg-card p-4 sm:p-6 shadow-lg flex flex-col gap-3">
+    <div className="border-2 border-black bg-card p-4 sm:p-6 shadow-lg flex flex-col gap-3">
       <h3 className="font-bold uppercase text-base">Ringkasan Budget</h3>
 
       {totalBudget > 0 && (
@@ -118,20 +118,20 @@ export function BudgetOverview({
             min={1}
             value={budgetVal}
             onChange={(e) => setBudgetVal(e.target.value)}
-            className="border-4 border-black px-4 py-3 w-full"
+            className="border-2 border-black px-4 py-3 w-full"
           />
           <div className="flex gap-2">
             <button
               type="submit"
               disabled={pending}
-              className="flex-1 border-4 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] transition-all disabled:opacity-50"
+              className="flex-1 border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] transition-all disabled:opacity-50"
             >
               {pending ? "..." : "Simpan"}
             </button>
             <button
               type="button"
               onClick={() => setShowModal(false)}
-              className="flex-1 border-4 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm"
+              className="flex-1 border-2 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm"
             >
               Batal
             </button>

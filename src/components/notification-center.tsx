@@ -77,7 +77,7 @@ export function NotificationCenter() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-80 border-4 border-black bg-card shadow-lg z-50">
+        <div className="absolute right-0 top-full mt-2 w-80 border-2 border-black bg-card shadow-lg z-50">
           <div className="flex items-center justify-between border-b-4 border-black px-4 py-3">
             <span className="font-head text-sm font-black uppercase">Notifikasi</span>
             {unread > 0 && (

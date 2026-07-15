@@ -29,7 +29,7 @@ function VerifyContent() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="border-4 border-black bg-card p-8 shadow-lg max-w-md w-full text-center">
+      <div className="border-2 border-black bg-card p-8 shadow-lg max-w-md w-full text-center">
         <p className="text-4xl mb-4">📧</p>
 
         {reason === "unconfirmed" ? (
@@ -45,14 +45,14 @@ function VerifyContent() {
         <button
           onClick={resend}
           disabled={resending || cooldown > 0}
-          className="mb-6 border-4 border-black bg-primary px-4 py-2 font-bold text-black uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-sm disabled:opacity-50"
+          className="mb-6 border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-sm disabled:opacity-50"
         >
           {resending ? "..." : cooldown > 0 ? `Kirim Ulang (${cooldown}s)` : sent ? "✅ Terkirim!" : "Kirim Ulang Email"}
         </button>
 
         <p className="text-xs text-muted-foreground mb-6">Gak terima email? Cek folder spam, atau coba daftar ulang.</p>
 
-        <Link href="/login" className="inline-block border-4 border-black bg-card px-6 py-3 font-bold uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-sm">
+        <Link href="/login" className="inline-block border-2 border-black bg-card px-6 py-3 font-bold uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-sm">
           Kembali ke Login
         </Link>
       </div>

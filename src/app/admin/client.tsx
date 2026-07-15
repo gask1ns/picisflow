@@ -48,15 +48,15 @@ export function AdminClient() {
 
         <FadeIn>
           <div className="grid grid-cols-3 gap-4">
-            <div className="border-4 border-black bg-card p-4 shadow-md">
+            <div className="border-2 border-black bg-card p-4 shadow-md">
               <p className="text-xs font-bold uppercase">User</p>
               <p className="text-2xl font-black">{stats.users}</p>
             </div>
-            <div className="border-4 border-black bg-card p-4 shadow-md">
+            <div className="border-2 border-black bg-card p-4 shadow-md">
               <p className="text-xs font-bold uppercase">Telegram</p>
               <p className="text-2xl font-black">{stats.linked}</p>
             </div>
-            <div className="border-4 border-black bg-card p-4 shadow-md">
+            <div className="border-2 border-black bg-card p-4 shadow-md">
               <p className="text-xs font-bold uppercase">Transaksi</p>
               <p className="text-2xl font-black">{stats.transactions}</p>
             </div>
@@ -64,21 +64,21 @@ export function AdminClient() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="border-4 border-black bg-card p-6 shadow-lg">
+          <div className="border-2 border-black bg-card p-6 shadow-lg">
             <h3 className="font-bold uppercase mb-4">📢 Broadcast Notification</h3>
             <div className="flex flex-col gap-3">
               <input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Judul notifikasi"
-                className="border-4 border-black px-4 py-3 w-full"
+                className="border-2 border-black px-4 py-3 w-full"
               />
               <textarea
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
                 placeholder="Isi notifikasi (opsional)"
                 rows={3}
-                className="border-4 border-black px-4 py-3 w-full resize-none"
+                className="border-2 border-black px-4 py-3 w-full resize-none"
               />
               <label className="flex items-center gap-2 text-sm font-bold">
                 <input
@@ -93,14 +93,14 @@ export function AdminClient() {
                 <button
                   onClick={() => broadcast(true)}
                   disabled={sending || !title}
-                  className="flex-1 border-4 border-black bg-primary px-4 py-2 font-bold text-black uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all disabled:opacity-50"
+                  className="flex-1 border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all disabled:opacity-50"
                 >
                   {sending ? "..." : "Kirim ke Semua User"}
                 </button>
                 <button
                   onClick={() => broadcast(false)}
                   disabled={sending || !title}
-                  className="border-4 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all disabled:opacity-50"
+                  className="border-2 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all disabled:opacity-50"
                 >
                   Test
                 </button>

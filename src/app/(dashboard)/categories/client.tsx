@@ -63,10 +63,10 @@ export function CategoriesClient({ categories }: { categories: Cat[] }) {
               .filter((c) => c.type === type)
               .map((c) => (
                 <StaggerItem key={c.id}>
-                  <div className="border-4 border-black bg-card p-4 shadow-md">
+                  <div className="border-2 border-black bg-card p-4 shadow-md">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2 min-w-0">
-                        <span className="text-lg shrink-0">{c.icon ?? "📄"}</span>
+                        <span className="flex size-10 shrink-0 items-center justify-center border-2 border-black bg-muted text-lg">{c.icon ?? "📄"}</span>
                         <span className="font-bold text-sm truncate">{c.name}</span>
                       </div>
                       {type === "expense" && (
@@ -106,13 +106,13 @@ export function CategoriesClient({ categories }: { categories: Cat[] }) {
             min={1}
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
-            className="border-4 border-black px-4 py-3 w-full"
+            className="border-2 border-black px-4 py-3 w-full"
           />
           <div className="flex gap-2">
             <button
               type="button"
               onClick={() => setPeriod("monthly")}
-              className={`flex-1 border-4 border-black px-3 py-2 text-xs font-bold uppercase transition-all ${
+              className={`flex-1 border-2 border-black px-3 py-2 text-xs font-bold uppercase transition-all ${
                 period === "monthly" ? "bg-primary text-white" : "bg-card"
               }`}
             >
@@ -121,7 +121,7 @@ export function CategoriesClient({ categories }: { categories: Cat[] }) {
             <button
               type="button"
               onClick={() => setPeriod("weekly")}
-              className={`flex-1 border-4 border-black px-3 py-2 text-xs font-bold uppercase transition-all ${
+              className={`flex-1 border-2 border-black px-3 py-2 text-xs font-bold uppercase transition-all ${
                 period === "weekly" ? "bg-primary text-white" : "bg-card"
               }`}
             >
@@ -133,14 +133,14 @@ export function CategoriesClient({ categories }: { categories: Cat[] }) {
             <button
               type="submit"
               disabled={pending}
-              className="flex-1 border-4 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] transition-all disabled:opacity-50"
+              className="flex-1 border-2 border-black bg-primary px-4 py-2 font-bold text-white uppercase shadow-sm hover:translate-x-[1px] transition-all disabled:opacity-50"
             >
               {pending ? "..." : "Simpan"}
             </button>
             <button
               type="button"
               onClick={() => setEditId(null)}
-              className="flex-1 border-4 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm"
+              className="flex-1 border-2 border-black bg-card px-4 py-2 font-bold uppercase shadow-sm"
             >
               Batal
             </button>

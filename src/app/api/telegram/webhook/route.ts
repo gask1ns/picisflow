@@ -236,10 +236,37 @@ function ensureBot(): (req: Request) => Promise<Response> {
 
       if (session && (session.step === "amount" || session.step === "income_amount")) {
         const supabase = createServiceClient();
-        const amount = parseInt(text.replace(/[.,\s]/g, ""), 10);
-        if (isNaN(amount) || amount <= 0) {
-          await ctx.reply("Nominal gak valid. Coba lagi atau kirim /batal.");
-          return;
+
+        // Try "nama jumlah" format, fallback to plain number
+        const descMatch = text.match(/^(.+?)\s+([\d][\d.,]*(?:[a-zA-Z]+\d*)?)\s*$/);
+        let desc: string | null = null;
+        let amount: number;
+        if (descMatch) {
+          desc = descMatch[1].trim();
+          const raw = descMatch[2];
+          const cleaned = raw.replace(/[.,\s]/g, "");
+          amount = parseInt(cleaned, 10);
+          if (isNaN(amount) || amount <= 0) {
+            await ctx.reply("Nominal gak valid. Coba lagi atau kirim /batal.");
+            return;
+          }
+          // Skip if description matches category name
+          if (session.category_id) {
+            const { data: cat } = await supabase
+              .from("categories")
+              .select("name")
+              .eq("id", session.category_id)
+              .single();
+            if (cat && desc.toLowerCase() === cat.name.toLowerCase()) {
+              desc = null;
+            }
+          }
+        } else {
+          amount = parseInt(text.replace(/[.,\s]/g, ""), 10);
+          if (isNaN(amount) || amount <= 0) {
+            await ctx.reply("Nominal gak valid. Coba lagi atau kirim /batal.");
+            return;
+          }
         }
 
         const type = session.step === "income_amount" ? "income" : "expense";
@@ -252,6 +279,7 @@ function ensureBot(): (req: Request) => Promise<Response> {
           category_id: session.category_id,
           type,
           amount,
+          description: desc,
           date: wibDate(),
           source: "telegram",
         });
